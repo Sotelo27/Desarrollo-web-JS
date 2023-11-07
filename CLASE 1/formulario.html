@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Solicitud de Seguro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Solicitud de Seguro</h2>
+    <form id="insuranceForm">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required>
+      </div>
+      <div class="form-group">
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+      </div>
+      <div class="form-group">
+        <label for="tiposeguro">Tipo de seguro:</label>
+        <select id="tiposeguro" name="tiposeguro" onchange="mostrarPrecio()">
+          <option value="basico">Básico</option>
+          <option value="intermedio">Intermedio</option>
+          <option value="premium">Premium</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="precio">Precio:</label>
+        <span id="precioMostrado">Seleccione un tipo de seguro</span>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function mostrarPrecio() {
+      var select = document.getElementById("tiposeguro");
+      var precioMostrado = document.getElementById("precioMostrado");
+      var selectedValue = select.value;
+
+      if (selectedValue === "basico") {
+        precioMostrado.textContent = "Basico: $500";
+      } else if (selectedValue === "intermedio") {
+        precioMostrado.textContent = "Intermedio: $1000";
+      } else if (selectedValue === "premium") {
+        precioMostrado.textContent = "Premium: $1500";
+      }
+    }
+  </script>
+</body>
+</html>
